@@ -1,0 +1,105 @@
+{[include file  ="customer/_includes/web_header.html"
+	title		= "サイト登録"
+	description	= ""
+	keywords	= ""
+	id			= ""
+	class		= ""
+	css		= ""
+	js		= ""
+]}
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+<script src="js/bootstrap-select.min.js"></script>
+
+{[include file  ="customer/_includes/web_side.html"]}
+{[include file  ="customer/_includes/web_nav.html"]} 
+
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>サイト管理</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>サイト登録完了</h2>
+                    <div class="clearfix"></div>
+                </div>
+                
+                <div class="x_content">
+                
+                    <div id="wizard" class="form_wizard wizard_horizontal">
+                        <ul class="wizard_steps">
+                            <li>
+                                <a href="javascript:void(0)" class="done" style="cursor:default; text-decoration:none;">
+                                    <span class="step_no">1</span>
+                                    <span class="step_descr">Step 1<br /><small>基本情報入力</small></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="done" style="cursor:default; text-decoration:none;">
+                                    <span class="step_no">2</span>
+                                    <span class="step_descr">Step 2<br /><small>お支払い情報入力</small></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <strong>サイトの登録が完了いたしました。</strong> 下記お支払い情報を確認してください。
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>お支払い先</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="bs-example" data-example-id="simple-jumbotron">
+                        <div class="jumbotron">
+                            <p>振込先銀行：{[$smarty.const.BANK]}</p>
+                            <p>支店：{[$smarty.const.BANK_BRANCH]}</p>
+                            <p>口座：{[$smarty.const.BANK_TYPE]}</p>
+                            <p>口座番号：{[$smarty.const.BANK_NUMBER]}</p>
+                            <p>名義：{[$smarty.const.BANK_NAME]}</p>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>金額</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="bs-example" data-example-id="simple-jumbotron">
+                        <div class="jumbotron">
+                            <p>3ヶ月：30000円</p>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+{[include file  ="customer/_includes/web_footer.html"]}
+

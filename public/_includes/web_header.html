@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:mixi="http://mixi-platform.com/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="{[if $description]}{[$description]}{[else]}{[#SITE_DESCRIPTION#]}{[/if]}" />
+<meta name="keywords" content="{[if $keywords]}{[$keywords]},{[#SITE_KEYWORDS#]}{[else]}{[#SITE_KEYWORDS#]}{[/if]}" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=0">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>{[if $title]}{[$title]}{[/if]}{[#SITE_TIITLE#]}</title>
+<link rel="stylesheet" href="/css/common.css" media="all">
+<link rel="stylesheet" href="/css/style.css" media="all">
+{[if $css]}<link rel="stylesheet" type="text/css" href="/css/{[$css]}" media="all" />{[/if]}
+{[if $js]}<script src="/js/{[$js]}"></script>{[/if]}
+<link rel="shortcut icon" type="image/x-icon" href="/img/common/favicon.ico">
+</head>
+<body{[if $id]} id="{[$id]}"{[/if]}{[if $class]} class="{[$class]}"{[/if]}>

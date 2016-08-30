@@ -1,0 +1,22 @@
+{[include file  ="_includes/web_header.html"]}
+
+{[form]}
+	{[form_errors]}
+	<table class="sheet">
+	<tr {[form_err name="customer[customer_mail]" def="titleTxt"]}>
+		<th>{[form_label name="customer[customer_mail]"]}</th>
+		<td>{[input_html name="customer[customer_mail]"]}</td>
+	</tr>
+    <tr {[form_err name="customer[customer_pass]" def="titleTxt"]}>
+		<th>{[form_label name="customer[customer_pass]"]}</th>
+		<td>{[input_html name="customer[customer_pass]"]}</td>
+	</tr>
+	</table>
+
+	<div class="submit">
+    	{[input_html name="submit[done]" value=" ログイン "]}
+	</div>
+
+{[/form]}	
+
+{[include file  ="_includes/web_footer.html"]}

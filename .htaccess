@@ -1,0 +1,19 @@
+php_flag allow_call_time_pass_reference on
+
+<Files ~ "\.(html|php)$">
+  RewriteEngine Off
+</Files>
+
+RewriteEngine On
+RewriteBase /
+
+
+RewriteRule ^(.*)/request_charging$ /me/request_charge_fin [QSA,L]
+
+RewriteRule (.*)\.([^\.]{2,4})$ public/$1.$2 [L]
+RewriteRule ^.*$ ./bootstrap.php [L]
+RewriteRule ^(.*/)*\.svn/ / [F,L]
+
+<Files bootstrap.php>
+  RewriteEngine Off
+</Files>

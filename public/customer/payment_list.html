@@ -1,0 +1,120 @@
+{[include file  ="customer/_includes/web_header.html"
+	title		= "サイト登録"
+	description	= ""
+	keywords	= ""
+	id			= ""
+	class		= ""
+	css		= ""
+	js		= ""
+]}
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+<script src="js/bootstrap-select.min.js"></script>
+
+{[include file  ="customer/_includes/web_side.html"]}
+{[include file  ="customer/_includes/web_nav.html"]} 
+
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3><i class="fa fa-jpy"></i> お支払い管理</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        
+        
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>お支払い一覧</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+    
+                    <!--p>Simple table with project listing with progress and editing options</p-->
+    
+                    <!-- start project list -->
+                    <table class="table table-striped projects">
+                        <thead>
+                            <tr>
+                                <th style="width: 1%">#</th>
+                                <th style="width: 20%">サイト名</th>
+                                <th>サイトURL</th>
+                                <th>利用期間</th>
+                                <th>ステータス</th>
+                                <th>金額</th>
+                                <th>承認日</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {[foreach from=$site_s item=site]}
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <a href="http://{[$site.site_url]}" target="_blank">{[$site.site_name]}</a>
+                                    <br>
+                                    <small>申請日 {[$site.payment_reg_datetime|date_format:"%Y年%m月%d日"]}</small>
+                                </td>
+                                <td>
+                                    {[$site.site_url]}
+                                </td>
+                                <td>
+                                    {[$site.payment_period]}日間
+                                </td>
+                                <td>
+                                    {[if $site.payment_status == 1 && $site.site_end_time > $smarty.now|date_format:'%Y-%m-%d %H:%M:%S']}
+                                        <button type="button" class="btn btn-success btn-xs">ご利用中</button>
+                                    {[elseif $site.payment_status == 1 && $site.site_end_time < $smarty.now|date_format:'%Y-%m-%d %H:%M:%S']}
+                                        <button type="button" class="btn btn-danger btn-xs">ご利用終了</button>
+                                    {[else]}
+                                        <button type="button" class="btn btn-warning btn-xs">ご請求中</button>
+                                    {[/if]}
+                                </td>
+                                <td>
+                                    {[$site.payment_price|number_format]}円
+                                </td>
+                                <td>
+                                    {[if $site.payment_approval_datetime > 0]}
+                                        {[$site.payment_approval_datetime|date_format:"%Y年%m月%d日"]}
+                                    {[/if]}
+                                </td>
+                            </tr>
+                            {[/foreach]}
+                        </tbody>
+                    </table>
+                    <!-- end project list -->
+    
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>お支払い先</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="bs-example" data-example-id="simple-jumbotron">
+                        <div class="jumbotron">
+                            <p>振込先銀行：{[$smarty.const.BANK]}</p>
+                            <p>支店：{[$smarty.const.BANK_BRANCH]}</p>
+                            <p>口座：{[$smarty.const.BANK_TYPE]}</p>
+                            <p>口座番号：{[$smarty.const.BANK_NUMBER]}</p>
+                            <p>名義：{[$smarty.const.BANK_NAME]}</p>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+{[include file  ="customer/_includes/web_footer.html"]}
+

@@ -1,0 +1,53 @@
+{[include file  ="_includes/web_header.html"
+	title		= "会員登録"
+	description	= ""
+	keywords	= ""
+	id			= ""
+	class		= ""
+	css		= ""
+	js		= ""
+]}
+
+<p>現在1週間の無料キャンペーン中です！</p>
+
+{[form]}
+	{[form_errors]}
+	<table class="sheet">
+	<tr {[form_err name="customer[customer_name]" def="titleTxt"]}>
+		<th>{[form_label name="customer[customer_name]"]}</th>
+		<td>{[input_html name="customer[customer_name]"]}</td>
+	</tr>
+	<tr {[form_err name="customer[customer_mail]" def="titleTxt"]}>
+		<th>{[form_label name="customer[customer_mail]"]}</th>
+		<td>{[input_html name="customer[customer_mail]"]}</td>
+	</tr>
+	<tr {[form_err name="customer[customer_mail_conf]" def="titleTxt"]}>
+		<th>{[form_label name="customer[customer_mail_conf]"]}</th>
+		<td>{[input_html name="customer[customer_mail_conf]"]}</td>
+	</tr>
+    <tr {[form_err name="customer[customer_pass]" def="titleTxt"]}>
+		<th>{[form_label name="customer[customer_pass]"]}</th>
+		<td>{[input_html name="customer[customer_pass]"]}</td>
+	</tr>
+	<tr {[form_err name="customer[customer_tel]" def="titleTxt"]}>
+		<th>{[form_label name="customer[customer_tel]"]}</th>
+		<td>{[input_html name="customer[customer_tel]"]}</td>
+	</tr>
+	<tr {[form_err name="customer[customer_address]" def="titleTxt"]}>
+		<th>{[form_label name="customer[customer_address]"]}</th>
+		<td>{[input_html name="customer[customer_address]"]}</td>
+	</tr>
+	</table>
+
+	<div class="submit">
+		{[if $form_status== "confirm"]}
+			{[input_html name="submit[back]" value=" 戻る "]}
+			{[input_html name="submit[done]" value=" 確認 "]}
+		{[else]}
+			{[input_html name="submit[done]" value=" 登録 "]}
+		{[/if]}
+	</div>
+
+{[/form]}	
+
+{[include file  ="_includes/web_footer.html"]}
